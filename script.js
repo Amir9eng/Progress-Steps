@@ -15,15 +15,11 @@ next.addEventListener("click", () => {
 });
 
 prev.addEventListener("click", () => {
-  console.log("i'm here");
-
   currentActive--;
   if (currentActive < 1) {
     currentActive = 1;
   }
-  if (currentActive === 1) {
-    prev.classList.add("disabled");
-  }
+
   update();
 });
 
@@ -35,4 +31,18 @@ function update() {
       circle.classList.remove("active");
     }
   });
+
+  const actives = document.querySelectorAll(".active");
+
+  progress.style.width =
+    ((actives.length - 1) / (circles.length - 1)) * 100 + "%";
+
+  if (currentActive === 1) {
+    prev.classList.add("disabled");
+  } else if (currentActive === circles.length) {
+    next.classList.add("disabled");
+  } else {
+    next.classList.remove("disabled");
+    prev.classList.remove("disabled");
+  }
 }
