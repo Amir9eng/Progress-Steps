@@ -85,7 +85,7 @@ body {
 .btn:focus {
   outline: none;
 }
-.btn:disabled {
+.btn.disabled {
   background-color: var(--border-empty);
   cursor: not-allowed;
 }
